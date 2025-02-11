@@ -1,0 +1,38 @@
+.social {
+  padding: 4rem 0;
+  background-color: #fff5f7;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary-color);
+  transition: color 0.3s;
+}
+
+.social-icon:hover {
+  color: var(--primary-dark);
+}
+
+.whatsapp-section {
+  margin-top: 2rem;
+}
+
+.whatsapp-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.qr-code {
+  margin: 0 auto;
+}
+

@@ -1,0 +1,11 @@
+.custom-hampers {
+  padding: 4rem 0;
+  background-color: white;
+  text-align: center;
+}
+
+.hampers-description {
+  margin-bottom: 2rem;
+  color: var(--gray-dark);
+}
+
