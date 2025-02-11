@@ -1,10 +1,10 @@
 import Image from "next/image"
 
 const favorites = [
-  { name: "Easter Bunny Cookies", price: "£25.99", image: "/placeholder.svg?height=200&width=200" },
-  { name: "Pink Cupcakes", price: "£15.99", image: "/placeholder.svg?height=200&width=200" },
-  { name: "Heart Cookies", price: "£19.99", image: "/placeholder.svg?height=200&width=200" },
-  { name: "Macarons", price: "£22.99", image: "/placeholder.svg?height=200&width=200" },
+  { name: "Dream cake", price: "£25.99", image: "/dreamcake.jpg?height=200&width=200" },
+  { name: "Doughnuts", price: "£15.99", image: "/donut.jpg?height=200&width=200" },
+  { name: "Choco-fudge brownies", price: "£19.99", image: "/brownies.jpg?height=200&width=200" },
+  { name: "Heart cookies", price: "£22.99", image: "/Heart-cookies1.jpg?height=200&width=200" },
 ]
 
 export default function CustomerFavorites() {
@@ -20,7 +20,9 @@ export default function CustomerFavorites() {
                   src={item.image || "/placeholder.svg"}
                   alt={item.name}
                   fill
-                  className="object-cover rounded-lg"
+                  sizes="100vw" // Add sizes attribute for better responsiveness
+                  style={{ objectFit: "cover" }} // Use style prop for objectFit
+                  className="rounded-2xl" 
                 />
               </div>
               <h3 className="text-gray-800 mb-2">{item.name}</h3>
@@ -32,4 +34,3 @@ export default function CustomerFavorites() {
     </section>
   )
 }
-
