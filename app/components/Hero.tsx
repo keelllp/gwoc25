@@ -31,7 +31,7 @@ export default function Hero() {
     >
       <div className="container mx-auto flex items-center justify-between px-4">
         {/* Left content */}
-        <div className="max-w-xl z-10 ml-16"> {/* Added ml-16 for left margin */}
+        <div className="max-w-xl z-10 -ml-24"> {/* Added ml-16 for left margin */}
           <h1 className="text-5xl font-serif text-primary mb-6">
             Welcome to<br />
             BINDI'S<br />
@@ -41,6 +41,7 @@ export default function Hero() {
             SHOP NOW
           </button>
         </div>
+        
 
         {/* Right image - Slideshow Container */}
         <div className="absolute right-0 top-0 w-2/3 h-full">
