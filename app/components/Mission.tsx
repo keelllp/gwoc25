@@ -9,7 +9,7 @@ export default function Mission() {
             <h2 className="text-3xl font-serif text-primary mb-6">OUR MISSION</h2>
             <p className="text-gray-600 mb-8">
               At Bindi's Cupcakery, we believe in creating moments of joy through our delicious, homemade treats. Every
-              creation is crafted with love, using only the finest vegetarian ingredients, ensuring that each bite is as
+              creation is crafted with love, using only the finest vegetarian ingredients and no preservatives, ensuring that each bite is as
               special as your celebration.
             </p>
             <button className="border-2 border-primary text-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-colors">
