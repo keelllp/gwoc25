@@ -4,7 +4,7 @@ const favorites = [
   { name: "Dream cake", price: "£25.99", image: "/dreamcake.jpg?height=200&width=200" },
   { name: "Doughnuts", price: "£15.99", image: "/donut.jpg?height=200&width=200" },
   { name: "Choco-fudge brownies", price: "£19.99", image: "/brownies.jpg?height=200&width=200" },
-  { name: "Heart cookies", price: "£22.99", image: "/Heart-cookies1.jpg?height=200&width=200" },
+  { name: "Heart cookies", price: "£22.99", image: "/Heart-cookies.jpg?height=200&width=200" },
 ]
 
 export default function CustomerFavorites() {
