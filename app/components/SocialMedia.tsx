@@ -1,6 +1,6 @@
 import { Instagram, Facebook } from "lucide-react"
 import Image from "next/image"
-import "./SocialMedia.css"
+import "./SocialMedia1.css"
 
 export default function SocialMedia() {
   return (
