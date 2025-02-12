@@ -1,3 +1,5 @@
+"use client"; 
+import { motion } from "framer-motion" 
 import Image from "next/image"
 
 const favorites = [
@@ -9,7 +11,14 @@ const favorites = [
 
 export default function CustomerFavorites() {
   return (
-    <section className="py-16 bg-cream">
+
+    <motion.section
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="py-16 bg-cream"
+  >
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-serif text-primary text-center mb-8">SHOP OUR CUSTOMER'S FAVORITES</h2>
         <div className="grid grid-cols-4 gap-6">
@@ -31,6 +40,6 @@ export default function CustomerFavorites() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }

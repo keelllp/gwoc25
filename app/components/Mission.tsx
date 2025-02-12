@@ -1,8 +1,17 @@
+"use client"; 
+import { motion } from "framer-motion" 
 import Image from "next/image"
 
 export default function Mission() {
-  return (
-    <section className="py-16">
+  return (  
+    <motion.section
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    className="py-16"
+    >
+  
       <div className="container mx-auto px-4">
         <div className="flex items-center gap-12">
           <div className="flex-1">
@@ -34,7 +43,8 @@ export default function Mission() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
+
   )
 }
 

@@ -1,10 +1,10 @@
 import Hero from "./components/Hero"
 import CustomerFavorites from "./components/CustomerFavorites"
 import Mission from "./components/Mission"
-import OurCreations from "./components/OurCreations"
+// import OurCreations from "./components/OurCreations"
 import CustomerReviews from "./components/CustomerReviews"
 import Navigation from "./components/Navigation"
-
+import ProductMap from "./components/ProductMap";
 export default function Home() {
   return (
     <main className="bg-white min-h-screen">
@@ -12,7 +12,8 @@ export default function Home() {
       <Hero />
       <CustomerFavorites />
       <Mission />
-      <OurCreations />
+      {/* <OurCreations /> */}
+      <ProductMap />
       <CustomerReviews />
     </main>
   )

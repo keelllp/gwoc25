@@ -1,8 +1,18 @@
+"use client"; 
+import { motion } from "framer-motion"
 import "./CustomHampers.css"
 
 export default function CustomHampers() {
   return (
-    <section id="custom-hampers" className="custom-hampers">
+    <motion.section
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    id="custom-hampers"
+     className="custom-hampers"
+   
+  >
       <div className="container">
         <h2 className="section-title">Customizable Dessert Hampers</h2>
         <p className="hampers-description">
@@ -10,7 +20,7 @@ export default function CustomHampers() {
         </p>
         <button className="btn btn-primary">Create Your Hamper</button>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

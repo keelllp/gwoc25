@@ -1,4 +1,6 @@
 "use client";
+"use client"; 
+import { motion } from "framer-motion" 
 import Image from "next/image"
 import { useState, useEffect } from "react"
 
@@ -21,39 +23,40 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative bg-pink-100 h-[500px] px-20"> {/* Reduced height and added horizontal padding */}
-      {/* Container with max-width */}
-      <div className="absolute inset-0 max-w-5xl mx-auto px-4"> {/* Added max-width constraint */}
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              currentSlide === index ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image 
-              src={slide}
-              alt={`Slide ${index + 1}`}
-              fill
-              className="object-contain" // Changed to contain to maintain aspect ratio
-              priority={index === 0}
-            />
-          </div>
-        ))}
-      </div>
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    className="relative bg-gradient-to-r from-secondary/20 to-secondary/10 py-20"
+  >
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              currentSlide === index ? "bg-primary" : "bg-gray-300"
-            }`}
-            onClick={() => setCurrentSlide(index)}
+      <div className="container mx-auto flex items-center justify-between px-4">
+        {/* Left content */}
+        <div className="max-w-xl z-10">
+          <h1 className="text-5xl font-serif text-primary mb-6">
+            Shop all
+            <br />
+            OUR CUTE
+            <br />
+            LITTLE BAKERY
+          </h1>
+          <button className="border-2 border-primary text-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-colors">
+            SHOP NOW
+          </button>
+        </div>
+        
+        {/* Right image */}
+        <div className="absolute right-0 top-0 w-2/3 h-full">
+          <Image 
+            src="/Logo.jpg" 
+            alt="Bindi's Cupcakery" 
+            fill 
+            className="object-cover"
+            priority
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
