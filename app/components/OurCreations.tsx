@@ -1,4 +1,6 @@
+"use client"; 
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 const categories = [
   { name: "NEW ARRIVALS", image: "/placeholder.svg?height=200&width=200" },
@@ -9,7 +11,13 @@ const categories = [
 
 export default function OurCreations() {
   return (
-    <section className="py-16 bg-cream">
+    <motion.section
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="py-4 bg-cream"
+  >
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-serif text-primary text-center mb-12">OUR CREATIONS</h2>
         <div className="grid grid-cols-4 gap-6 mb-8">
@@ -33,7 +41,7 @@ export default function OurCreations() {
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

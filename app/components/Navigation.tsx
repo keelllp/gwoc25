@@ -1,10 +1,18 @@
+"use client"; 
+import { motion } from "framer-motion" 
 import Link from "next/link"
 import { ShoppingCart, User } from "lucide-react"
 
 export default function Navigation() {
   return (
     <>
-      <div className="bg-white py-2 px-4 border-b">
+    <motion.section
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    className="bg-white py-2 px-4 border-b"
+    >
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex gap-4">
             <Link href="#" className="text-gray-600 hover:text-primary">
@@ -28,7 +36,6 @@ export default function Navigation() {
             </Link>
           </div>
         </div>
-      </div>
       <nav className="bg-primary py-4">
         <div className="container mx-auto flex justify-center items-center gap-8">
           <Link href="#" className="text-white hover:text-cream">
@@ -51,7 +58,8 @@ export default function Navigation() {
           </Link>
         </div>
       </nav>
-    </>
+    </motion.section>
+  </>
   )
 }
 

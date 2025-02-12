@@ -1,3 +1,5 @@
+"use client"; 
+import { motion } from "framer-motion"
 import { Leaf, Cake, ShieldCheck } from "lucide-react"
 import "./Features.css"
 
@@ -9,9 +11,16 @@ export default function Features() {
   ]
 
   return (
-    <section className="features">
+    <motion.section
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="features"
+   
+  >
       <div className="container">
-        <h2 className="section-title">Our Promise</h2>
+        <h2 className="section-title">Our Promise</h2>features
         <div className="features-grid">
           {features.map((feature, index) => (
             <div key={index} className="feature-item">
@@ -22,7 +31,7 @@ export default function Features() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

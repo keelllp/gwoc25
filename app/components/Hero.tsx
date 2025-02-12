@@ -1,8 +1,17 @@
+"use client"; 
+import { motion } from "framer-motion" 
 import Image from "next/image"
 
 export default function Hero() {
   return (
-    <div className="relative bg-gradient-to-r from-secondary/20 to-secondary/10 py-20">
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    className="relative bg-gradient-to-r from-secondary/20 to-secondary/10 py-20"
+  >
+
       <div className="container mx-auto flex items-center justify-between px-4">
         <div className="max-w-xl">
           <h1 className="text-5xl font-serif text-primary mb-6">
@@ -20,7 +29,7 @@ export default function Hero() {
           <Image src="/placeholder.svg?height=400&width=400" alt="Decorated Cake" fill className="object-contain" />
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

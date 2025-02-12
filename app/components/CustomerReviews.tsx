@@ -1,3 +1,5 @@
+"use client"; 
+import { motion } from "framer-motion"
 import Image from "next/image"
 import { Star } from "lucide-react"
 
@@ -24,7 +26,13 @@ const reviews = [
 
 export default function CustomerReviews() {
   return (
-    <section className="py-16">
+    <motion.section
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="py-16"
+  >
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-serif text-primary text-center mb-12">CUSTOMER REVIEWS</h2>
         <div className="grid grid-cols-3 gap-8">
@@ -49,7 +57,7 @@ export default function CustomerReviews() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
