@@ -17,14 +17,14 @@ export default function CustomerFavorites() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="py-16 bg-[#fdf3f7]" // Soft pastel background
+      className="py-24 mt-16 lg:mt-24 bg-[#fdf3f7]" // Increased padding & margin for better spacing
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-serif text-[#6d3d6d] text-center mb-10">
+        <h2 className="text-4xl font-serif text-[#6d3d6d] text-center mb-12">
           SHOP OUR CUSTOMER'S FAVORITES
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
           {favorites.map((item, index) => (
             <motion.div
               key={index}
@@ -52,3 +52,4 @@ export default function CustomerFavorites() {
     </motion.section>
   );
 }
+ 
