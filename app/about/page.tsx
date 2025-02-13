@@ -37,15 +37,15 @@ export default function About() {
       </div>
 
       {/* Navigation Bar */}
-      <nav className="absolute top-0 left-0 right-0 bg-pink-200 py-4 shadow-md text-center">
-        <ul className="flex justify-center gap-6 md:gap-12">
-          <li>
-            <Link href="/" className="text-black hover:text-pink-600 text-lg md:text-xl font-semibold transition">
-              HOME
-            </Link>
-          </li>
-        </ul>
-      </nav>
+<nav className="absolute top-0 left-0 right-0 bg-pink-200 py-4 shadow-md text-center">
+  <ul className="flex justify-start gap-6 md:gap-12 pl-6 md:pl-12"> {/* Added pl-6 and md:pl-12 */}
+    <li>
+      <Link href="/" className="text-black hover:text-pink-600 text-lg md:text-xl font-semibold transition">
+        HOME
+      </Link>
+    </li>
+  </ul>
+</nav>
 
       {/* Content Section */}
       <div className="relative z-10 text-center p-6 sm:p-10 md:p-16 max-w-5xl bg-white bg-opacity-90 rounded-lg shadow-lg">

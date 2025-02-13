@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { ShoppingCart, MessageCircle } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 const products = [
   // Muffins
