@@ -41,8 +41,8 @@ export default function ProductMap() {
               <Image
                 src={product.image}
                 alt={product.name}
-                width={150}
-                height={150}
+                width={90}
+                height={90}
                 className="rounded-full border-2 border-primary shadow-lg bg-white p-1"
               />
               <p className="mt-2 text-sm font-bold text-primary">{product.name}</p>
