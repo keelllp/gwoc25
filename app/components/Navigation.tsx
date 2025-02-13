@@ -24,7 +24,7 @@ export default function Header() {
 
         {/* Account and Cart */}
         <div className="flex items-center gap-4">
-          <Link href="/login" className="flex items-center gap-2 text-gray-600 transition-colors duration-300 hover:text-pink-500">
+          <Link href="../login" className="flex items-center gap-2 text-gray-600 transition-colors duration-300 hover:text-pink-500">
             <User size={20} />
             <span>Log In</span>
           </Link>
