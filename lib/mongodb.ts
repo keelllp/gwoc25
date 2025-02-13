@@ -1,24 +1,35 @@
-import mongoose from "mongoose";
+// lib/mongodb.ts
+import mongoose from 'mongoose';
 
-const MONGODB_URI: string | undefined = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error("❌ MONGODB_URI is missing in .env.local");
+if (!process.env.MONGODB_URI) {
+  throw new Error('Please add your MONGODB_URI to .env.local');
 }
 
-export async function connectDB(): Promise<void> {
+const MONGODB_URI = process.env.MONGODB_URI;
+
+export const connectDB = async () => {
   try {
     if (mongoose.connection.readyState >= 1) {
-      console.log("✅ Already connected to MongoDB");
+      console.log('📌 Already connected to MongoDB');
       return;
     }
-    await mongoose.connect(MONGODB_URI as string, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    } as mongoose.ConnectOptions);
-    console.log("✅ Connected to MongoDB");
+
+    console.log('🔄 Connection attempt starting...');
+    console.log('📌 Connection string format check:', 
+      MONGODB_URI.startsWith('mongodb+srv://') ? 'Valid' : 'Invalid');
+
+    const conn = await mongoose.connect(MONGODB_URI);
+    
+    console.log('✅ MongoDB Connected:');
+    console.log('📌 Database name:', conn.connection.name);
+    console.log('📌 Host:', conn.connection.host);
+    console.log('📌 Port:', conn.connection.port);
   } catch (error) {
-    console.error("❌ MongoDB Connection Error:", error);
+    console.error('❌ MongoDB connection error:', {
+      name: (error as Error).name,
+      message: (error as Error).message,
+      stack: (error as Error).stack
+    });
     throw error;
   }
-}
+};

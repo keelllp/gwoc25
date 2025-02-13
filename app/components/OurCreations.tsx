@@ -30,7 +30,7 @@ export default function ProductMap() {
       </div>
 
       {/* ✅ Fixed Link for Navigation */}
-      <Link href="http://localhost:3002/shop" passHref>
+      <Link href="/shop" passHref>
         <motion.button 
           className="mt-6 px-6 py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800"
           whileHover={{ scale: 1.1 }}
