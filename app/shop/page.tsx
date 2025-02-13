@@ -118,7 +118,7 @@ export default function ShopPage() {
       <footer className="mt-16 bg-gray-800 text-white text-center py-6 rounded-t-lg">
         <p className="text-lg">📍 Visit us at Bindi’s Cupcakery, Surat</p>
         <p className="text-sm mt-2">Follow us:  
-          <a href="#" className="ml-2 hover:underline">Instagram</a> |  
+          <a href="#" className="ml-2 hover:underline">Instagram</a> 
           <a href="#" className="ml-2 hover:underline">Facebook</a>
         </p>
       </footer>
