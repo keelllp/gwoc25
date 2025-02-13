@@ -21,34 +21,50 @@ export default function Hero() {
     offset: ["start end", "end start"],
   });
 
-  // Stronger Scroll Effect
   const yText = useTransform(scrollYProgress, [0, 1], [150, 0]);
   const yImage = useTransform(scrollYProgress, [0, 1], [200, 0]);
 
   return (
-    <div ref={ref} className="relative bg-gradient-to-b from-pink-100 to-pink-50 overflow-hidden">
-      {/* Hero Section with Stronger Parallax Effect */}
+    <div
+      ref={ref}
+      className="relative overflow-hidden bg-cover bg-center min-h-screen flex flex-col items-center justify-center"
+      style={{ backgroundImage: "url('/backgroundhome.jpg')" }}
+    >
+      {/* Overlay for better readability */}
+      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+
+      {/* Handwritten Signature Effect */}
+      <motion.div
+        className="absolute top-5 left-5 text-pink-200 text-2xl italic font-bold z-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 }}
+      >
+        Baked with Love ❤️ - Bindi's Cupcakery
+      </motion.div>
+
+      {/* Hero Section */}
       <motion.div
         style={{ y: yText }}
-        className="relative flex flex-col items-center justify-center text-center py-40"
+        className="relative flex flex-col items-center justify-center text-center py-40 z-10"
       >
-        <h1 className="text-6xl font-serif text-pink-800 mb-6 drop-shadow-lg">
+        <h1 className="text-6xl font-serif text-white mb-6 drop-shadow-lg">
           Welcome to<br />
           BINDI'S<br />
           CUPCAKERY 🧁
         </h1>
         <motion.button
-          className="border-2 border-pink-700 text-pink-700 px-8 py-3 rounded-full hover:bg-pink-700 hover:text-white transition-colors shadow-lg"
+          className="border-2 border-pink-200 text-pink-200 px-8 py-3 rounded-full hover:bg-pink-200 hover:text-pink-800 transition-colors shadow-lg"
           whileHover={{ scale: 1.1 }}
         >
           SHOP NOW
         </motion.button>
       </motion.div>
 
-      {/* Slideshow with Stronger Parallax */}
+      {/* Slideshow */}
       <motion.div
         style={{ y: yImage }}
-        className="relative mx-auto w-3/4 h-96 sm:h-[500px] md:h-[550px] rounded-xl overflow-hidden shadow-xl"
+        className="relative mx-auto w-3/4 h-96 sm:h-[500px] md:h-[550px] rounded-xl overflow-hidden shadow-xl z-10"
       >
         {slides.map((slide, index) => (
           <motion.div
@@ -71,44 +87,18 @@ export default function Hero() {
         ))}
       </motion.div>
 
-      {/* Aesthetic Cupcake with Rotating Circular Text and Stronger Parallax */}
-      <motion.div
-        style={{ y: yText }}
-        className="relative mt-20 flex items-center justify-center"
-      >
-        {/* Rotating Text */}
-        <motion.div
-          className="absolute w-72 h-72"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-        >
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <defs>
-              <path
-                id="circlePath"
-                d="M 100, 100
-                   m -85, 0
-                   a 85, 85 0 1,1 170,0
-                   a 85, 85 0 1,1 -170,0"
-              />
-            </defs>
-            <text fill="#C2185B" fontSize="15" fontWeight="bold">
-              <textPath href="#circlePath" startOffset="0%">
-                ✨ Freshly Baked with Love • 🌱 100% Vegetarian, No Preservatives • BINDI'S CUPCAKERY • 
-              </textPath>
-            </text>
-          </svg>
-        </motion.div>
-
-        {/* Larger Cupcake Emoji with Smooth Breathing Animation */}
-        <motion.span
-          className="text-[200px] text-pink-600 drop-shadow-xl"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          🧁
-        </motion.span>
-      </motion.div>
+      {/* Falling Sprinkles Background Effect */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-pink-400 rounded-full"
+            style={{ top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%` }}
+            animate={{ y: [0, 50, 100], opacity: [1, 1, 0] }}
+            transition={{ duration: 5, repeat: Infinity, delay: Math.random() * 3 }}
+          />
+        ))}
+      </div>
     </div>
   );
 }
