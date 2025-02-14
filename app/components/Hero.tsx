@@ -11,7 +11,6 @@ export default function Hero() {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -27,15 +26,15 @@ export default function Hero() {
   return (
     <div
       ref={ref}
-      className="relative overflow-hidden bg-cover bg-center min-h-screen flex flex-col items-center justify-center"
+      className="relative overflow-hidden bg-cover bg-center min-h-[120vh] flex flex-col items-center justify-center"
       style={{ backgroundImage: "url('/backgroundhome.jpg')" }}
     >
       {/* Overlay for better readability */}
       <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
-      {/* Handwritten Signature Effect */}
+      {/* Handwritten Signature Effect - Moved Inside the Main Content */}
       <motion.div
-        className="absolute top-5 left-5 text-pink-200 text-2xl italic font-bold z-10"
+        className="text-pink-200 text-2xl italic font-bold z-20 mt-10"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5 }}
@@ -46,12 +45,12 @@ export default function Hero() {
       {/* Hero Section */}
       <motion.div
         style={{ y: yText }}
-        className="relative flex flex-col items-center justify-center text-center py-40 z-10"
+        className="relative flex flex-col items-center justify-center text-center py-40 z-20"
       >
         <h1 className="text-6xl font-serif text-white mb-6 drop-shadow-lg">
           Welcome to<br />
           BINDI'S<br />
-          CUPCAKERY 🧁
+          CUPCAKERY
         </h1>
         <motion.button
           className="border-2 border-pink-200 text-pink-200 px-8 py-3 rounded-full hover:bg-pink-200 hover:text-pink-800 transition-colors shadow-lg"
@@ -61,10 +60,10 @@ export default function Hero() {
         </motion.button>
       </motion.div>
 
-      {/* Slideshow */}
+      {/* Slideshow - Increased Height */}
       <motion.div
         style={{ y: yImage }}
-        className="relative mx-auto w-3/4 h-96 sm:h-[500px] md:h-[550px] rounded-xl overflow-hidden shadow-xl z-10"
+        className="relative mx-auto w-3/4 h-[600px] md:h-[700px] rounded-xl overflow-hidden shadow-xl z-10"
       >
         {slides.map((slide, index) => (
           <motion.div
