@@ -46,7 +46,7 @@ export default function Navigation() {
           <a href="#" className="text-primary text-lg">
             <FaFacebookF />
           </a>
-          <a href="#" className="text-primary text-lg">
+          <a href="https://instagram.com/bindis_cupcakery" className="text-primary text-lg">
             <FaInstagram />
           </a>
           <a href="#" className="text-primary text-lg">
