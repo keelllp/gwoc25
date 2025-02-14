@@ -93,61 +93,6 @@ export default function ShopPage() {
           </div>
         ))}
       </div>
-<<<<<<< HEAD
-
-      {/* Trending Products Section */}
-      <div className="mt-12">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">🔥 Trending Desserts</h2>
-        <div className="flex overflow-x-scroll space-x-6 px-4">
-          {products.map((product) => (
-            <div key={product.id} className="bg-white shadow-md rounded-lg p-4 w-60">
-              <Image src={product.image} alt={product.name} width={200} height={200} className="rounded-lg" />
-              <h3 className="text-lg font-semibold mt-2">{product.name}</h3>
-              <p className="text-gray-500">{product.price}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Customer Testimonials */}
-      <div className="mt-16 bg-pink-100 py-12 rounded-lg text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">❤️ What Our Customers Say</h2>
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-md w-80">
-            <p className="text-gray-700">“Absolutely love the brownies! The best in town.”</p>
-            <p className="text-gray-600 mt-2">- Riya S.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md w-80">
-            <p className="text-gray-700">“The donuts are so soft and delicious. Highly recommend!”</p>
-            <p className="text-gray-600 mt-2">- Aman K.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md w-80">
-            <p className="text-gray-700">“Dream Cake was a dream come true! 5 stars!”</p>
-            <p className="text-gray-600 mt-2">- Neha P.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* WhatsApp Floating Chat Button */}
-      <a
-        href="https://wa.me/919876543210"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition"
-      >
-        <MessageCircle size={24} />
-      </a>
-
-      {/* Footer Section */}
-      <footer className="mt-16 bg-gray-800 text-white text-center py-6 rounded-t-lg">
-        <p className="text-lg">📍 Visit us at Bindi’s Cupcakery, Surat</p>
-        <p className="text-sm mt-2">Follow us:  
-          <a href="#" className="ml-2 hover:underline">Instagram</a> 
-          <a href="#" className="ml-2 hover:underline">Facebook</a>
-        </p>
-      </footer>
-=======
->>>>>>> a7c9f11f99fa3f19db8999808f6edff9dc15c3a1
     </div>
   );
 }
