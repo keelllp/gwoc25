@@ -42,17 +42,7 @@ export default function Navigation() {
 
         {/* Right Section - Socials, Login, Cart */}
         <div className="flex items-center space-x-4">
-          {/* Social Links */}
-          <a href="#" className="text-primary text-lg">
-            <FaFacebookF />
-          </a>
-          <a href="https://instagram.com/bindis_cupcakery" className="text-primary text-lg">
-            <FaInstagram />
-          </a>
-          <a href="#" className="text-primary text-lg">
-            <FaRegCommentDots />
-          </a>
-
+        
           {/* Login and Cart */}
           <Link href="/login" className="flex items-center space-x-1">
             <FiUser />
