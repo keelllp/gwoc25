@@ -6,6 +6,7 @@ import CustomerReviews from "./components/CustomerReviews"
 import Navigation from "./components/Navigation"
 import ProductMap from "./components/ProductMap"
 import Footer from "./components/Footer";
+
 export default function Home() {
   return (
     <main className="bg-white min-h-screen">

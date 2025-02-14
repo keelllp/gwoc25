@@ -10,7 +10,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, []);
@@ -37,7 +37,7 @@ export default function Hero() {
       <motion.div
         className="absolute top-5 left-5 text-pink-200 text-2xl italic font-bold z-10"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 40 }}
         transition={{ duration: 1.5 }}
       >
         Baked with Love ❤️ - Bindi's Cupcakery

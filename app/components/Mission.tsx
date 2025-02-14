@@ -15,14 +15,12 @@ export default function Mission() {
       <div className="container mx-auto px-4">
         <div className="flex items-center gap-12">
           <div className="flex-1">
-            <h2 className="text-3xl font-serif text-primary mb-6">OUR MISSION</h2>
+            <h2 className="text-3xl font-serif text-primary mb-6">CREATE YOUR OWN HAMPERS 💕</h2>
             <p className="text-gray-600 mb-8">
-              At Bindi's Cupcakery, we believe in creating moments of joy through our delicious, homemade treats. Every
-              creation is crafted with love, using only the finest vegetarian ingredients and no preservatives, ensuring that each bite is as
-              special as your celebration.
+              We offer a wide range of products and services to make your special day even more special. From custom cakes to cupcakes, we have it all. Wanna have something unique? Let us know and we will make it happen.
             </p>
             <button className="border-2 border-primary text-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-colors">
-              CONTACT US
+              Make my own :D
             </button>
           </div>
           <div className="flex-1 grid grid-cols-2 gap-4">
