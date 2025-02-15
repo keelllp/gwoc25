@@ -1,0 +1,122 @@
+.loaderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #ffe4e1;
+    text-align: center;
+  }
+  
+  .oven {
+    width: 120px;
+    height: 150px;
+    background: #d2691e;
+    border-radius: 10px;
+    position: relative;
+    animation: shake 1.5s infinite;
+  }
+  
+  .tray {
+    width: 100px;
+    height: 10px;
+    background: #8b4513;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .cupcake {
+    position: absolute;
+    bottom: 15px;
+    left: 30px;
+    animation: rise 2s infinite alternate;
+  }
+  
+  .cake {
+    width: 40px;
+    height: 30px;
+    background: #ffcc99;
+    border-radius: 5px;
+  }
+  
+  .frosting {
+    width: 50px;
+    height: 20px;
+    background: #ff69b4;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -5px;
+  }
+  
+  .sprinkles {
+    width: 5px;
+    height: 5px;
+    background: white;
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    border-radius: 50%;
+  }
+  
+  /* Candle */
+  .candle {
+    width: 6px;
+    height: 20px;
+    background: red;
+    position: absolute;
+    top: -25px;
+    left: 17px;
+    border-radius: 2px;
+  }
+  
+  /* Flame */
+  .flame {
+    width: 10px;
+    height: 15px;
+    background: orange;
+    position: absolute;
+    top: -12px;
+    left: -2px;
+    border-radius: 50%;
+    animation: flicker 0.5s infinite alternate;
+  }
+  
+  /* Animations */
+  @keyframes rise {
+    0% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+  
+  @keyframes flicker {
+    0% {
+      transform: scale(1);
+      background: orange;
+    }
+    100% {
+      transform: scale(1.2);
+      background: yellow;
+    }
+  }
+  
+  .loadingText {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8b0000;
+    margin-top: 20px;
+  }
+  
