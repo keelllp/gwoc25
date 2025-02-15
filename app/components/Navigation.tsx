@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaRegCommentDots } from "react-icons/fa";
@@ -7,13 +7,6 @@ import { FiShoppingCart, FiUser } from "react-icons/fi";
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const footerRef = useRef<HTMLElement | null>(null);
-
-  const scrollToFooter = () => {
-    footerRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
 
   return (
     <nav className="fixed top-0 w-full bg-pink-100 shadow-md z-50">
@@ -43,12 +36,7 @@ export default function Navigation() {
             <Link href="/shop">SHOP</Link>
           </li>
           <li>
-          <button 
-                onClick={scrollToFooter}
-                className="text-gray-900 hover:text-pink-600 px-3 py-2 text-sm font-medium"
-              >
-                CONTACT
-              </button>
+            <Link href="/contact">CONTACT</Link>
           </li>
         </ul>
 
