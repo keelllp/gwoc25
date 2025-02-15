@@ -51,7 +51,7 @@ export default function Hero() {
         <h1 className="text-6xl font-serif text-white mb-6 drop-shadow-lg">
           Welcome to<br />
           BINDI'S<br />
-          CUPCAKERY
+          CUPCAKERY 
         </h1>
         
       </motion.div>
