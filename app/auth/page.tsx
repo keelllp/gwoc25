@@ -11,7 +11,7 @@ export default function AuthPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const endpoint = isLogin ? "/api/auth/login" : "/api/auth/signup";
-    
+
     const res = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -20,10 +20,10 @@ export default function AuthPage() {
 
     if (res.ok) {
       if (isLogin) {
-        router.push("/shop"); // Redirect after login
+        router.push("/shop");
       } else {
         alert("Signup successful! You can now log in.");
-        setIsLogin(true); // Switch to login mode after signup
+        setIsLogin(true);
       }
     } else {
       const data = await res.json();
@@ -32,35 +32,55 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h2 className="text-2xl font-bold mb-4">{isLogin ? "Login" : "Sign Up"} to Bindi's Cupcakery</h2>
-      
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg w-80">
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 mb-3 border border-gray-300 rounded"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 mb-3 border border-gray-300 rounded"
-        />
-        <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
-          {isLogin ? "Login" : "Sign Up"}
-        </button>
-      </form>
+    <div className="relative flex flex-col items-center justify-center min-h-screen bg-pink-100 font-sans">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/background.jpg')" }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black opacity-40"></div>
+      </div>
 
-      <p className="mt-4">
-        {isLogin ? "Don't have an account?" : "Already have an account?"} 
-        <button onClick={() => setIsLogin(!isLogin)} className="text-blue-500 ml-1 underline">
-          {isLogin ? "Sign up" : "Login"}
-        </button>
-      </p>
+      {/* Content */}
+      <div className="relative bg-white p-8 rounded-2xl shadow-xl w-96 text-center">
+        <h2 className="text-3xl font-bold text-pink-600 mb-4">
+          {isLogin ? "Welcome Back!" : "Join Bindi's Cupcakery"}
+        </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 font-sans"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 font-sans"
+          />
+          <button
+            type="submit"
+            className="w-full bg-pink-500 text-white py-3 rounded-lg font-semibold hover:bg-pink-600 transition duration-300 font-sans"
+          >
+            {isLogin ? "Login" : "Sign Up"}
+          </button>
+        </form>
+
+        <p className="mt-4 text-gray-700 font-sans">
+          {isLogin ? "New here?" : "Already have an account?"}{" "}
+          <button
+            onClick={() => setIsLogin(!isLogin)}
+            className="text-pink-500 font-bold underline"
+          >
+            {isLogin ? "Create an account" : "Login"}
+          </button>
+        </p>
+      </div>
     </div>
   );
 }

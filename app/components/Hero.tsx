@@ -51,14 +51,9 @@ export default function Hero() {
         <h1 className="text-6xl font-serif text-white mb-6 drop-shadow-lg">
           Welcome to<br />
           BINDI'S<br />
-          CUPCAKERY 🧁
+          CUPCAKERY 
         </h1>
-        <motion.button
-          className="border-2 border-pink-200 text-pink-200 px-8 py-3 rounded-full hover:bg-pink-200 hover:text-pink-800 transition-colors shadow-lg"
-          whileHover={{ scale: 1.1 }}
-        >
-          SHOP NOW
-        </motion.button>
+        
       </motion.div>
 
       {/* Slideshow */}
