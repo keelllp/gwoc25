@@ -10,7 +10,8 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 3000);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -52,12 +53,7 @@ export default function Hero() {
           BINDI'S<br />
           CUPCAKERY
         </h1>
-        <motion.button
-          className="border-2 border-pink-200 text-pink-200 px-8 py-3 rounded-full hover:bg-pink-200 hover:text-pink-800 transition-colors shadow-lg"
-          whileHover={{ scale: 1.1 }}
-        >
-          SHOP NOW
-        </motion.button>
+        
       </motion.div>
 
       {/* Slideshow - Increased Height */}
