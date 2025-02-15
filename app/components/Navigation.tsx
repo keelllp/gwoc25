@@ -26,11 +26,7 @@ export default function Navigation() {
 
         {/* Right Section */}
         <div className="flex items-center space-x-4">
-          {/* Social Links */}
-          <a href="#" className="text-primary text-lg"><FaFacebookF /></a>
-          <a href="#" className="text-primary text-lg"><FaInstagram /></a>
-          <a href="#" className="text-primary text-lg"><FaRegCommentDots /></a>
-
+        
           {/* Login and Cart */}
           <Link href="/login" className="flex items-center space-x-1"><FiUser /><span className="hidden md:inline">Log In</span></Link>
           <Link href="/cart" className="flex items-center space-x-1"><FiShoppingCart /><span className="hidden md:inline">Cart (0)</span></Link>

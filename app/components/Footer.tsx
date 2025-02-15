@@ -1,30 +1,29 @@
 import "./Footer.css";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          {/* Cupcakery Info */}
           <div className="footer-info">
             <h3>Bindi's Cupcakery</h3>
             <p>Parle Point, Surat</p>
           </div>
-
-          {/* Contact Details */}
-          <div className="footer-contact">
-            <p>📞 Phone: <a href="tel:+919876543210">+91 98765 43210</a></p>
-            <p>📧 Email: <a href="mailto:info@bindiscupcakery.com">info@bindiscupcakery.com</a></p>
-            <p>📍 Location: Parle Point, Surat</p>
-            <p>🗺️ <a href="https://goo.gl/maps/your-google-maps-link" target="_blank" rel="noopener noreferrer">View on Google Maps</a></p>
-          </div>
-
-          {/* Copyright */}
-          <div className="footer-rights">
+          <div>
             <p>&copy; {new Date().getFullYear()} Bindi's Cupcakery. All rights reserved.</p>
           </div>
         </div>
+
+        {/* Google Maps Embed */}
+        <div className="md:w-1/2">
+          <iframe
+            className="w-full h-64 min-h-[250px] rounded-lg shadow-md"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d567.2925023793136!2d72.7914954!3d21.174258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04ddd6dae8af5%3A0xe17d92a28035ffe2!2sParle%20Point!5e0!3m2!1sen!2sin!4v1707900000000!5m2!1sen!2sin"
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     </footer>
-  );
+  )
 }
+

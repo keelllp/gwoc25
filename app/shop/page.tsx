@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ShoppingCart, X } from "lucide-react"
@@ -326,3 +326,4 @@ export default function ShopPage() {
     </div>
   )
 }
+

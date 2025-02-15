@@ -1,24 +1,22 @@
-import mongoose from "mongoose";
+// lib/mongodb.ts
+import mongoose from 'mongoose';
 
-const MONGODB_URI: string | undefined = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI as string;
 
 if (!MONGODB_URI) {
-  throw new Error("❌ MONGODB_URI is missing in .env.local");
+  throw new Error("Please define the MONGODB_URI environment variable");
 }
 
-export async function connectDB(): Promise<void> {
-  try {
-    if (mongoose.connection.readyState >= 1) {
-      console.log("✅ Already connected to MongoDB");
-      return;
-    }
-    await mongoose.connect(MONGODB_URI as string, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    } as mongoose.ConnectOptions);
-    console.log("✅ Connected to MongoDB");
-  } catch (error) {
-    console.error("❌ MongoDB Connection Error:", error);
-    throw error;
+let cached = (global as any).mongoose || { conn: null, promise: null };
+
+export async function connectToDatabase() {
+  if (cached.conn) return cached.conn;
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(MONGODB_URI, {
+      dbName: "bindis-cupcakery",
+      bufferCommands: false,
+    }).then((m) => m.connection);
   }
+  cached.conn = await cached.promise;
+  return cached.conn;
 }

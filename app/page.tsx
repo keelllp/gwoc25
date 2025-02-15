@@ -5,7 +5,7 @@ import CustomerFavorites from "@/app/components/CustomerFavorites";
 import CustomerReviews from "@/app/components/CustomerReviews";
 import Navigation from "@/app/components/Navigation";
 import ProductMap from "@/app/components/ProductMap";
-import Footer from "@/app/components/Footer";
+
 export default function Home() {
   return (
     <main className="bg-white min-h-screen">
@@ -16,7 +16,7 @@ export default function Home() {
       {/* <OurCreations /> */}
       <ProductMap />
       <CustomerReviews />
-      <Footer />
+  
     </main>
   );
 }
