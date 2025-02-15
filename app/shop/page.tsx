@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { ShoppingCart, X } from "lucide-react"
@@ -63,10 +63,11 @@ const products = [
   { id: 16, name: "Chocolate Ganache Cake", image: "/ganache.jpg", price: "₹450", category: "Cakes" },
   { id: 17, name: "Brownie Cake", image: "/brownie_cake.jpg", price: "₹420", category: "Cakes" },
   { id: 18, name: "Brownie Cake with Walnuts", image: "/brownie_walnut_cake.jpg", price: "₹450", category: "Cakes" },
+  { id: 19, name: "Dream Cake", image:"/dreamcake.jpg", price: "₹300", category: "Cakes"},
 
   // Cookies
-  { id: 19, name: "Chocolate Chips Cookies", image: "/choco_cookies.jpg", price: "₹150", category: "Cookies" },
-  { id: 20, name: "Dryfruit Cookies", image: "/dryfruit_cookies.jpg", price: "₹170", category: "Cookies" },
+  { id: 20, name: "Chocolate Chips Cookies", image: "/choco_cookies.jpg", price: "₹150", category: "Cookies" },
+  { id: 21, name: "Dryfruit Cookies", image: "/dryfruit_cookies.jpg", price: "₹170", category: "Cookies" },
 ]
 
 const categories = ["All", "Cakes", "Muffins", "Brownies", "Cookies"]
