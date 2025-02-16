@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Inter, Playfair_Display } from "next/font/google";
 import Navigation from "./components/Navigation"; // ✅ Fixed Import
+import { CartProvider } from './components/CartContext' 
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -10,19 +11,14 @@ export const metadata = {
   description: "Homemade, vegetarian, preservative-free desserts in Surat",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="bg-pink-100">
-        <Navigation /> {/* ✅ Sticky Navbar */}
-        <main className="pt-0"> {/* Adds space below navbar */}
+    <html lang="en">
+      <body>
+        <CartProvider> {/* Wrap the app with the provider */}
           {children}
-        </main>
+        </CartProvider>
       </body>
-    </html> 
-  );
+    </html>
+  )
 }

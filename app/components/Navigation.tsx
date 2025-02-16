@@ -3,7 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaRegCommentDots } from "react-icons/fa";
-import { FiShoppingCart, FiUser, FiMenu, FiX } from "react-icons/fi";
+import { FiUser, FiMenu, FiX } from "react-icons/fi";
+import { CartButton } from "./Cart";
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-4">
             {/* Login and Cart */}
             <Link href="/login" className="flex items-center space-x-1"><FiUser /><span className="hidden md:inline">Log In</span></Link>
-            <Link href="/cart" className="flex items-center space-x-1"><FiShoppingCart /><span className="hidden md:inline">Cart (0)</span></Link>
+            <CartButton />{/* Replaced the cart link with CartButton */}
 
             {/* Order Button */}
             <Link href="/shop" className="bg-black text-white px-4 py-2 rounded-full text-sm hover:bg-opacity-80 transition">

@@ -1,7 +1,9 @@
-"use client";
-import { useState, useEffect } from "react"
+// app/shop/page.tsx
+"use client"
+import { useState } from "react"
 import Image from "next/image"
-import { ShoppingCart, X } from "lucide-react"
+import { CartButton } from "../components/Cart"
+import { useCart } from "../components/CartContext"
 
 const products = [
   // Muffins
@@ -63,82 +65,33 @@ const products = [
   { id: 16, name: "Chocolate Ganache Cake", image: "/ganache.jpg", price: "₹450", category: "Cakes" },
   { id: 17, name: "Brownie Cake", image: "/brownie_cake.jpg", price: "₹420", category: "Cakes" },
   { id: 18, name: "Brownie Cake with Walnuts", image: "/brownie_walnut_cake.jpg", price: "₹450", category: "Cakes" },
-  { id: 19, name: "Dream Cake", image:"/dreamcake.jpg", price: "₹300", category: "Cakes"},
+  { id: 19, name: "Dream Cake", image: "/dreamcake.jpg", price: "₹300", category: "Cakes" },
 
   // Cookies
   { id: 20, name: "Chocolate Chips Cookies", image: "/choco_cookies.jpg", price: "₹150", category: "Cookies" },
   { id: 21, name: "Dryfruit Cookies", image: "/dryfruit_cookies.jpg", price: "₹170", category: "Cookies" },
 ]
 
+
 const categories = ["All", "Cakes", "Muffins", "Brownies", "Cookies"]
+
 export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
-  const [cartCount, setCartCount] = useState(0)
-  const [cartItems, setCartItems] = useState<
-    { id: number; name: string; image: string; price: string; category: string; quantity: number }[]
-  >([])
-  const [showCart, setShowCart] = useState(false)
   const [showFeedbackModal, setShowFeedbackModal] = useState(false)
   const [feedbackMessage, setFeedbackMessage] = useState("")
   const [productQuantities, setProductQuantities] = useState<{ [key: number]: number }>({})
   const [showQuantityControls, setShowQuantityControls] = useState<{ [key: number]: boolean }>({})
-  const [cartTotal, setCartTotal] = useState(0)
 
-  useEffect(() => {
-    const total = cartItems.reduce((sum, item) => {
-      return sum + Number.parseFloat(item.price.replace("₹", "")) * item.quantity
-    }, 0)
-    setCartTotal(total)
-  }, [cartItems])
+  const { addToCart, updateQuantity } = useCart()
 
   const filteredProducts =
     selectedCategory === "All" ? products : products.filter((p) => p.category === selectedCategory)
 
-  const addToCart = (product: { id: number; name: string; image: string; price: string; category: string }) => {
+  const handleAddToCart = (product: (typeof products)[0]) => {
     const quantity = productQuantities[product.id] || 1
-    const existingItem = cartItems.find((item) => item.id === product.id)
-
-    if (existingItem) {
-      setCartItems(
-        cartItems.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item)),
-      )
-    } else {
-      setCartItems([...cartItems, { ...product, quantity }])
-    }
-
-    setCartCount(cartCount + quantity)
+    addToCart(product, quantity)
     setProductQuantities({ ...productQuantities, [product.id]: 1 })
     setShowQuantityControls({ ...showQuantityControls, [product.id]: true })
-  }
-
-  const updateQuantity = (productId: number, newQuantity: number) => {
-    // Update productQuantities state
-    setProductQuantities({
-      ...productQuantities,
-      [productId]: newQuantity,
-    })
-
-    // Update cartItems if the product is already in cart
-    const existingItemIndex = cartItems.findIndex((item) => item.id === productId)
-    if (existingItemIndex !== -1) {
-      const updatedCartItems = [...cartItems]
-      const oldQuantity = updatedCartItems[existingItemIndex].quantity
-      updatedCartItems[existingItemIndex].quantity = newQuantity
-      setCartItems(updatedCartItems)
-
-      // Update total cart count
-      setCartCount(cartCount - oldQuantity + newQuantity)
-    }
-  }
-
-  const removeFromCart = (productId: number) => {
-    const item = cartItems.find((item) => item.id === productId)
-    if (item) {
-      setCartCount(cartCount - item.quantity)
-      setCartItems(cartItems.filter((item) => item.id !== productId))
-      setShowQuantityControls({ ...showQuantityControls, [productId]: false })
-      setProductQuantities({ ...productQuantities, [productId]: 1 })
-    }
   }
 
   const handleFeedbackSubmit = () => {
@@ -173,7 +126,6 @@ export default function ShopPage() {
             <div className="flex items-center justify-center gap-4 mt-2">
               <button
                 className="px-3 py-1 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
-                
                 onClick={() => setShowFeedbackModal(false)}
               >
                 Cancel
@@ -189,60 +141,6 @@ export default function ShopPage() {
         </div>
       )}
 
-      {showCart && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-40">
-          <div className="bg-white w-96 h-full p-6 shadow-lg">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold">Your Cart 🛒</h2>
-              <button onClick={() => setShowCart(false)}>
-                <X size={24} className="text-gray-800 hover:text-gray-600 transition" />
-              </button>
-            </div>
-            {cartItems.length === 0 ? (
-              <p className="text-gray-500 text-center">Your cart is empty.</p>
-            ) : (
-              <div className="space-y-4">
-                {cartItems.map((item) => (
-                  <div key={item.id} className="flex justify-between items-center border-b pb-4">
-                    <div>
-                      <h3 className="font-semibold">{item.name}</h3>
-                      <p className="text-sm text-gray-500">{item.price}</p>
-                    </div>
-                    <div className="flex items-center justify-center gap-4 mt-2">
-                      <span>Qty: {item.quantity}</span>
-                      <button
-                        className="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
-                        onClick={() => removeFromCart(item.id)}
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-            {/* Checkout Section */}
-            {cartItems.length > 0 && (
-              <div className="border-t pt-4 mt-4">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-semibold">Total Bill</h3>
-                  <p className="font-bold text-lg">₹{cartTotal.toFixed(2)}</p>
-                </div>
-                <button
-                  className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition"
-                  onClick={() => {
-                    localStorage.setItem("cartTotal", cartTotal.toString())
-                    window.location.href = "/checkout"
-                  }}
-                >
-                  Proceed to Checkout
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
       <button
         className="absolute top-6 right-6 px-4 py-2 bg-yellow-500 text-white font-bold rounded-full shadow-lg hover:bg-yellow-600 transition animate-bounce z-30"
         onClick={() => setShowFeedbackModal(true)}
@@ -250,23 +148,21 @@ export default function ShopPage() {
         Share Your Ideas! 💡
       </button>
 
-      <h1 className="text-4xl font-bold text-center text-white mb-8 relative z-10">Explore Our Creations 🧁</h1>
+      <h1 className="text-4xl font-bold text-center text-white mb-8 relative z-10">
+        Explore Our Creations 🧁
+      </h1>
 
-      <div
-        className="absolute top-6 left-6 flex items-center bg-white px-4 py-2 rounded-full shadow-lg cursor-pointer hover:shadow-xl transition z-50"
-        onClick={() => setShowCart(true)}
-      >
-        <ShoppingCart size={24} className="text-gray-800" />
-        <span className="ml-2 font-semibold">{cartCount}</span>
+      <div className="fixed top-6 left-6 z-[100] bg-white rounded-full p-3 shadow-md">
+        <CartButton />
       </div>
+
 
       <div className="flex justify-center gap-4 mb-6 relative z-10">
         {categories.map((category) => (
           <button
             key={category}
-            className={`px-3 py-1.5 rounded-md ${
-              selectedCategory === category ? "bg-pink-500 text-white" : "bg-white text-gray-800"
-            } shadow-md hover:bg-pink-600 transition text-sm`}
+            className={`px-3 py-1.5 rounded-md ${selectedCategory === category ? "bg-pink-500 text-white" : "bg-white text-gray-800"
+              } shadow-md hover:bg-pink-600 transition text-sm`}
             onClick={() => setSelectedCategory(category)}
           >
             {category}
@@ -297,6 +193,7 @@ export default function ShopPage() {
                   className="px-2 py-1 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
                   onClick={() => {
                     const newQuantity = Math.max((productQuantities[product.id] || 1) - 1, 1)
+                    setProductQuantities({ ...productQuantities, [product.id]: newQuantity })
                     updateQuantity(product.id, newQuantity)
                   }}
                 >
@@ -307,6 +204,7 @@ export default function ShopPage() {
                   className="px-2 py-1 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
                   onClick={() => {
                     const newQuantity = (productQuantities[product.id] || 1) + 1
+                    setProductQuantities({ ...productQuantities, [product.id]: newQuantity })
                     updateQuantity(product.id, newQuantity)
                   }}
                 >
@@ -316,7 +214,7 @@ export default function ShopPage() {
             ) : (
               <button
                 className="mt-2 w-full bg-pink-500 text-white py-1.5 text-sm rounded-2xl hover:bg-pink-600 transition"
-                onClick={() => addToCart(product)}
+                onClick={() => handleAddToCart(product)}
               >
                 Add to Cart
               </button>
@@ -327,4 +225,3 @@ export default function ShopPage() {
     </div>
   )
 }
-
