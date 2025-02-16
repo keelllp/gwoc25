@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="bg-pink-100">
         <Navigation /> {/* ✅ Sticky Navbar */}
-        {children}
+        <main className="pt-0"> {/* Adds space below navbar */}
+          {children}
+        </main>
       </body>
     </html>
   );
