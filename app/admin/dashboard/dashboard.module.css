@@ -2,7 +2,23 @@
 .dashboardContainer {
     display: flex;
     height: 100vh;
-    background-color: #fff5f8;
+    position: relative;
+    background: url('/background.jpg') no-repeat center center/cover;
+  }
+  
+  .mainContent {
+    flex: 1;
+    /* Allow main content to take full width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centers content vertically */
+    align-items: center;
+    /* Centers content horizontally */
+    text-align: center;
+    /* Ensures text is centered */
+    color: white;
+    padding: 2rem;
   }
   
   /* Sidebar */
@@ -22,10 +38,14 @@
   }
   
   .sidebar nav ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    /* Adjust spacing between buttons */
+    margin-top: 50px;
+    /* Move the whole menu down */
   }
+  
   
   .sidebar nav ul li {
     padding: 10px;
@@ -67,7 +87,7 @@
   
   .mainContent h1 {
     font-size: 28px;
-    color: #d63384;
+    color: #ffffff;
   }
   
   .card {
@@ -109,4 +129,3 @@
     text-align: center;
     margin-top: 100px;
   }
-  

@@ -49,8 +49,8 @@ export default function AdminDashboard() {
 
       {/* Main Content */}
       <main className={styles.mainContent}>
-        <h1>Welcome, {user}! 🎂</h1>
-        <p>Here you can manage products, orders, and payments.</p>
+        <h1 className="text-4xl font-serif font-bold mb-4">Welcome, {user}! 🎂</h1>
+        <p className="text-white text-4xl font-serif">Here you can manage products, orders, and payments.</p>
       </main>
     </div>
   );
