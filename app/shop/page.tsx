@@ -7,69 +7,69 @@ import { useCart } from "../components/CartContext"
 
 const products = [
   // Muffins
-  { id: 1, name: "Plain Vanilla Muffin", image: "/vanilla_muffin.jpg", price: "₹120", category: "Muffins" },
-  { id: 2, name: "Plain Chocolate Muffin", image: "/choco_muffin.jpg", price: "₹130", category: "Muffins" },
-  { id: 3, name: "Vanilla Chocochips Muffin", image: "/vanilla_choco.jpg", price: "₹140", category: "Muffins" },
+  { id: 1, name: "Plain Vanilla Muffin", image: "/vanilla_muffin.jpg", price: 120, category: "Muffins" },
+  { id: 2, name: "Plain Chocolate Muffin", image: "/choco_muffin.jpg", price: 130, category: "Muffins" },
+  { id: 3, name: "Vanilla Chocochips Muffin", image: "/vanilla_choco.jpg", price: 140, category: "Muffins" },
   {
     id: 4,
     name: "Chocolate Muffin with Chocochips",
     image: "/choco_chocochip.jpg",
-    price: "₹150",
+    price: 150,
     category: "Muffins",
   },
-  { id: 5, name: "Vanilla Muffin with Dryfruits", image: "/vanilla_dryfruit.jpg", price: "₹160", category: "Muffins" },
-  { id: 6, name: "Chocolate Muffin with Dryfruits", image: "/choco_dryfruit.jpg", price: "₹170", category: "Muffins" },
+  { id: 5, name: "Vanilla Muffin with Dryfruits", image: "/vanilla_dryfruit.jpg", price: 160, category: "Muffins" },
+  { id: 6, name: "Chocolate Muffin with Dryfruits", image: "/choco_dryfruit.jpg", price: 170, category: "Muffins" },
 
   // Brownies
-  { id: 7, name: "Plain Brownie", image: "/brownie_plain.jpg", price: "₹200", category: "Brownies" },
-  { id: 8, name: "Brownie with Chocolate Sauce", image: "/brownie_choco.jpg", price: "₹220", category: "Brownies" },
+  { id: 7, name: "Plain Brownie", image: "/brownie_plain.jpg", price: 200, category: "Brownies" },
+  { id: 8, name: "Brownie with Chocolate Sauce", image: "/brownie_choco.jpg", price: 220, category: "Brownies" },
   {
     id: 9,
     name: "Brownie with Chocolate Sauce & Walnuts",
     image: "/brownie_walnut.jpg",
-    price: "₹250",
+    price: 250,
     category: "Brownies",
   },
 
   // Cakes
-  { id: 10, name: "Plain Vanilla Sponge Cake", image: "/vanilla_cake.jpg", price: "₹300", category: "Cakes" },
-  { id: 11, name: "Plain Chocolate Sponge Cake", image: "/choco_cake.jpg", price: "₹320", category: "Cakes" },
+  { id: 10, name: "Plain Vanilla Sponge Cake", image: "/vanilla_cake.jpg", price: 300, category: "Cakes" },
+  { id: 11, name: "Plain Chocolate Sponge Cake", image: "/choco_cake.jpg", price: 320, category: "Cakes" },
   {
     id: 12,
     name: "Vanilla Sponge Cake with Chocochips/Gems/Tutti-frutti",
     image: "/vanilla_toppings.jpg",
-    price: "₹350",
+    price: 350,
     category: "Cakes",
   },
   {
     id: 13,
     name: "Chocolate Sponge Cake with Chocochips/Gems/Tutti-frutti",
     image: "/choco_toppings.jpg",
-    price: "₹370",
+    price: 370,
     category: "Cakes",
   },
   {
     id: 14,
     name: "Vanilla Sponge Cake with Dryfruits",
     image: "/vanilla_dry_cake.jpg",
-    price: "₹380",
+    price: 380,
     category: "Cakes",
   },
   {
     id: 15,
     name: "Chocolate Sponge Cake with Dryfruits",
     image: "/choco_dry_cake.jpg",
-    price: "₹400",
+    price: 400,
     category: "Cakes",
   },
-  { id: 16, name: "Chocolate Ganache Cake", image: "/ganache.jpg", price: "₹450", category: "Cakes" },
-  { id: 17, name: "Brownie Cake", image: "/brownie_cake.jpg", price: "₹420", category: "Cakes" },
-  { id: 18, name: "Brownie Cake with Walnuts", image: "/brownie_walnut_cake.jpg", price: "₹450", category: "Cakes" },
-  { id: 19, name: "Dream Cake", image: "/dreamcake.jpg", price: "₹300", category: "Cakes" },
+  { id: 16, name: "Chocolate Ganache Cake", image: "/ganache.jpg", price: 450, category: "Cakes" },
+  { id: 17, name: "Brownie Cake", image: "/brownie_cake.jpg", price: 420, category: "Cakes" },
+  { id: 18, name: "Brownie Cake with Walnuts", image: "/brownie_walnut_cake.jpg", price: 450, category: "Cakes" },
+  { id: 19, name: "Dream Cake", image: "/dreamcake.jpg", price: 300, category: "Cakes" },
 
   // Cookies
-  { id: 20, name: "Chocolate Chips Cookies", image: "/choco_cookies.jpg", price: "₹150", category: "Cookies" },
-  { id: 21, name: "Dryfruit Cookies", image: "/dryfruit_cookies.jpg", price: "₹170", category: "Cookies" },
+  { id: 20, name: "Chocolate Chips Cookies", image: "/choco_cookies.jpg", price: 150, category: "Cookies" },
+  { id: 21, name: "Dryfruit Cookies", image: "/dryfruit_cookies.jpg", price: 170, category: "Cookies" },
 ]
 
 
@@ -104,7 +104,7 @@ export default function ShopPage() {
     <div
       className="min-h-screen p-6 relative"
       style={{
-        backgroundImage: "url('/background.jpg')",
+        backgroundImage: "url('/vanilla_cake.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
