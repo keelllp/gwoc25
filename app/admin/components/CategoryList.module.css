@@ -1,0 +1,54 @@
+/*
+.listContainer {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .listItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  .listItem:last-child {
+    border-bottom: none;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .editButton,
+  .deleteButton {
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .editButton {
+    background-color: #0070f3;
+    color: white;
+  }
+  
+  .deleteButton {
+    background-color: #ff4d4d;
+    color: white;
+  }
+*/

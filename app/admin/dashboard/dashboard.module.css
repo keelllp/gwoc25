@@ -1,131 +1,131 @@
 /* Dashboard Layout */
 .dashboardContainer {
-  display: flex;
-  height: 100vh;
-  position: relative;
-  background: url('/background.jpg') no-repeat center center/cover;
-}
-
-.mainContent {
-  flex: 1;
-  /* Allow main content to take full width */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* Centers content vertically */
-  align-items: center;
-  /* Centers content horizontally */
-  text-align: center;
-  /* Ensures text is centered */
-  color: white;
-  padding: 2rem;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  background: #ff66a3;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.sidebar nav ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  /* Adjust spacing between buttons */
-  margin-top: 50px;
-  /* Move the whole menu down */
-}
-
-
-.sidebar nav ul li {
-  padding: 10px;
-  font-size: 18px;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 5px 0;
-}
-
-.sidebar nav ul li:hover {
-  background: #ff3385;
-}
-
-/* Logout Button */
-.logoutButton {
-  background: #fff;
-  color: #ff66a3;
-  padding: 10px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: auto;
-  width: 100%;
-  text-align: center;
-  border-radius: 5px;
-}
-
-.logoutButton:hover {
-  background: #ff3385;
-  color: white;
-}
-
-/* Main Content */
-.mainContent {
-  flex: 1;
-  padding: 20px;
-}
-
-.mainContent h1 {
-  font-size: 28px;
-  color: #ffffff;
-}
-
-.card {
-  background: white;
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.card h2 {
-  font-size: 22px;
-  color: #ff3385;
-}
-
-.card p {
-  font-size: 16px;
-  color: #666;
-}
-
-.actionButton {
-  background: #ff66a3;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.actionButton:hover {
-  background: #d63384;
-}
-
-/* Loading Screen */
-.loading {
-  font-size: 22px;
-  color: #d63384;
-  text-align: center;
-  margin-top: 100px;
-}
+    display: flex;
+    height: 100vh;
+    position: relative;
+    background: url('/background.jpg') no-repeat center center/cover;
+  }
+  
+  .mainContent {
+    flex: 1;
+    /* Allow main content to take full width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centers content vertically */
+    align-items: center;
+    /* Centers content horizontally */
+    text-align: center;
+    /* Ensures text is centered */
+    color: white;
+    padding: 2rem;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background: #ff66a3;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .sidebar nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    /* Adjust spacing between buttons */
+    margin-top: 50px;
+    /* Move the whole menu down */
+  }
+  
+  
+  .sidebar nav ul li {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px 0;
+  }
+  
+  .sidebar nav ul li:hover {
+    background: #ff3385;
+  }
+  
+  /* Logout Button */
+  .logoutButton {
+    background: #fff;
+    color: #ff66a3;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .logoutButton:hover {
+    background: #ff3385;
+    color: white;
+  }
+  
+  /* Main Content */
+  .mainContent {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .mainContent h1 {
+    font-size: 28px;
+    color: #ffffff;
+  }
+  
+  .card {
+    background: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h2 {
+    font-size: 22px;
+    color: #ff3385;
+  }
+  
+  .card p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .actionButton {
+    background: #ff66a3;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .actionButton:hover {
+    background: #d63384;
+  }
+  
+  /* Loading Screen */
+  .loading {
+    font-size: 22px;
+    color: #d63384;
+    text-align: center;
+    margin-top: 100px;
+  }
