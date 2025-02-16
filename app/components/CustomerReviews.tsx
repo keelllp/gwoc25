@@ -1,63 +1,90 @@
-"use client"; 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { Star } from "lucide-react"
+"use client";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Star } from "lucide-react";
 
 const reviews = [
   {
-    name: "ALEXA YOUNG, CA",
+    name: "Alexa Young, CA",
     image: "/placeholder.svg?height=100&width=100",
     rating: 5,
-    text: "Testimonials provide a sense of what it's like to work with you or use your products. Change this text and add your own.",
+    text: "Absolutely love the cupcakes! The taste and presentation were flawless. Highly recommended!",
   },
   {
-    name: "MORGAN JAMES, NY",
+    name: "Morgan James, NY",
     image: "/placeholder.svg?height=100&width=100",
     rating: 5,
-    text: "A great testimonial can boost your brand's image. Click to edit and add your own.",
+    text: "These are hands-down the best cupcakes I’ve ever had! The flavors are incredible and unique.",
   },
   {
-    name: "LISA BROWN, MI",
+    name: "Lisa Brown, MI",
     image: "/placeholder.svg?height=100&width=100",
     rating: 5,
-    text: "Here customers review you and share what they had to say. Click to edit and add your own testimonials.",
+    text: "The customer service was fantastic, and the cupcakes were heavenly. Can’t wait to order again!",
   },
-]
+];
 
 export default function CustomerReviews() {
   return (
     <motion.section
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-    className="py-16"
-  >
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-serif text-primary text-center mb-12">CUSTOMER REVIEWS</h2>
-        <div className="grid grid-cols-3 gap-8">
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="py-16 relative bg-gradient-to-br from-[#fde2e4] to-[#fdf3f7] overflow-hidden"
+    >
+      {/* Floating Stars for Aesthetic */}
+      <div className="absolute inset-0 pointer-events-none opacity-10">
+        <Image src="/floating-stars.png" alt="Floating Stars" fill className="object-cover" />
+      </div>
+
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-serif text-[#6d3d6d] text-center mb-12 tracking-wide">
+          What Our Customers Say
+        </h2>
+
+        {/* Review Carousel */}
+        <motion.div 
+          className="flex space-x-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+          whileTap={{ cursor: "grabbing" }}
+        >
           {reviews.map((review, index) => (
-            <div key={index} className="bg-cream p-6 rounded-lg text-center">
-              <div className="w-24 h-24 mx-auto mb-4 relative">
+            <motion.div
+              key={index}
+              className="min-w-[320px] bg-white/80 backdrop-blur-lg shadow-lg p-8 rounded-2xl snap-center border border-white/50 relative transition-transform duration-300 hover:scale-105"
+              whileHover={{ scale: 1.05 }}
+            >
+              {/* Customer Image */}
+              <div className="w-20 h-20 mx-auto mb-4 relative">
                 <Image
-                  src={review.image || "/placeholder.svg"}
+                  src={review.image}
                   alt={review.name}
                   fill
-                  className="rounded-full object-cover"
+                  className="rounded-full object-cover border-4 border-[#d46aa0]"
                 />
               </div>
+
+              {/* Star Ratings */}
               <div className="flex justify-center gap-1 mb-4">
                 {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  <motion.div 
+                    key={i}
+                    className="w-6 h-6"
+                    animate={{ rotate: [0, 15, -15, 0] }}
+                    transition={{ duration: 0.6, delay: i * 0.1, repeat: Infinity, repeatType: "mirror" }}
+                  >
+                    <Star className="w-full h-full text-yellow-500 fill-yellow-500 drop-shadow-md" />
+                  </motion.div>
                 ))}
               </div>
-              <h3 className="text-primary font-semibold mb-4">{review.name}</h3>
-              <p className="text-gray-600">{review.text}</p>
-            </div>
+
+              {/* Review Content */}
+              <h3 className="text-[#6d3d6d] font-semibold text-lg text-center mb-3">{review.name}</h3>
+              <p className="text-gray-700 text-center text-sm">{review.text}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </motion.section>
-  )
+  );
 }
-

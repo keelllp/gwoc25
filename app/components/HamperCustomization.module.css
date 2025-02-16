@@ -1,0 +1,143 @@
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    background: #ffe6f2;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    color: #ff3385;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sizeSelection h2 {
+    font-size: 1.5rem;
+    color: #ff3385;
+}
+
+.sizeButtons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.sizeButton {
+    background: #ff66a3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.selectedSize {
+    background: #d63384;
+}
+
+.itemsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.itemCard, .selectedItem {
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid pink;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+}
+
+.itemImage {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    border: 2px solid transparent;
+    transition: border 0.2s ease-in-out;
+}
+
+.selected {
+    border: 2px solid #ff66a3;
+}
+
+/* Ensure buttons stay at the bottom */
+.button, .addButton {
+    width: 100%;
+    background-color: #ff66a3; /* Always pink */
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    margin-top: auto;
+}
+
+.button:hover, .addButton:hover {
+    background-color: #e05590;
+}
+
+/* Your Hamper Section */
+.selectedItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.selectedItem {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.selectedItem button {
+    width: 100%;
+    text-align: center;
+}
+
+.createButton {
+    width: 100%;
+    background-color: #ff3385;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s ease-in-out;
+}
+
+.createButton:hover {
+    background-color: #d63384;
+}
+
+.hamperSummary {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}

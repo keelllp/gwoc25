@@ -52,7 +52,7 @@ export default function AuthPage() {
         }, 2000);
       } else {
         alert("Signup successful! You can now log in.");
-        setIsLogin(true); // Switch to login mode after signup
+        setIsLogin(true);
       }
     } catch (error) {
       setErrorMessage("Something went wrong!"); // Set error message for fetch error
