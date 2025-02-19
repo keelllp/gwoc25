@@ -21,10 +21,10 @@ export function CartButton() {
         </div>
       </>
     );
-  }
+}
 
 export function Cart({ onClose }: { onClose: () => void }) {
-  const { cartItems, cartTotal, removeFromCart } = useCart()
+  const { cartItems, cartTotal, removeFromCart } = useCart();
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-end z-40">
@@ -35,29 +35,43 @@ export function Cart({ onClose }: { onClose: () => void }) {
             <X size={24} className="text-gray-800 hover:text-gray-600 transition" />
           </button>
         </div>
+        
         {cartItems.length === 0 ? (
           <p className="text-gray-500 text-center">Your cart is empty.</p>
         ) : (
           <div className="space-y-4">
             {cartItems.map((item) => (
-              <div key={item.id} className="flex justify-between items-center border-b pb-4">
-                <div>
-                  <h3 className="font-semibold">{item.name}</h3>
-                  <p className="text-sm text-gray-500">{item.price}</p>
-                </div>
-                <div className="flex items-center justify-center gap-4 mt-2">
-                  <span>Qty: {item.quantity}</span>
-                  <button
-                    className="px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
-                    onClick={() => removeFromCart(item.id)}
-                  >
-                    Remove
-                  </button>
-                </div>
+              <div key={item.id} className="border-b pb-4">
+                {Array.isArray(item.items) ? (
+                  <div>
+                    <h3 className="font-semibold">🎁 {item.name}</h3>
+                    <p className="text-sm text-gray-500">Hamper Price: ₹{item.price}</p>
+                    <ul className="ml-4 list-disc text-sm text-gray-600">
+                      {item.items.map((hamperItem: any) => (
+                        <li key={hamperItem.id}>{hamperItem.name} - ₹{hamperItem.price}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <h3 className="font-semibold">{item.name}</h3>
+                      <p className="text-sm text-gray-500">₹{item.price}</p>
+                    </div>
+                  </div>
+                )}
+
+                <button
+                  className="mt-2 px-2 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  Remove
+                </button>
               </div>
             ))}
           </div>
         )}
+        
         {cartItems.length > 0 && (
           <div className="border-t pt-4 mt-4">
             <div className="flex justify-between items-center mb-4">
@@ -77,5 +91,5 @@ export function Cart({ onClose }: { onClose: () => void }) {
         )}
       </div>
     </div>
-  )
+  );
 }

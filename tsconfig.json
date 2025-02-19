@@ -23,12 +23,10 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/lib/*": [
-        "lib/*"
-      ]
+      "@/components/*": ["app/components/*"],  // ✅ Added alias for components
+      "@/lib/*": ["lib/*"],
+      "@/app/*": ["app/*"], // ✅ Explicit alias for app directory
+      "@/*": ["./*"]
     },
     "target": "ES2017"
   },

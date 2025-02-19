@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { FiHome } from "react-icons/fi"; // Importing the home icon
 
 const images = [
   "/cupcake1.jpg",
@@ -36,16 +37,13 @@ export default function About() {
         <div className="absolute inset-0 bg-white bg-opacity-40"></div>
       </div>
 
-      {/* Navigation Bar */}
-      <nav className="absolute top-0 left-0 right-0 bg-[#FADADD] py-4 shadow-md text-center">
-        <ul className="flex justify-start gap-6 md:gap-12 pl-6 md:pl-12">
-          <li>
-            <Link href="/" className="text-[#5B3A29] hover:text-[#d46aa0] text-lg md:text-xl font-semibold transition">
-              HOME
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      {/* Circular Home Button */}
+      <Link
+        href="/"
+        className="absolute top-6 left-6 w-12 h-12 md:w-16 md:h-16 bg-[#d46aa0] text-white flex items-center justify-center rounded-full shadow-lg hover:bg-[#c86f99] transition transform hover:scale-110"
+      >
+        <FiHome className="text-2xl md:text-3xl" /> {/* Using the FiHome icon */}
+      </Link>
 
       {/* Content Section */}
       <div className="relative z-10 text-center p-6 sm:p-10 md:p-16 max-w-4xl bg-white bg-opacity-90 rounded-lg shadow-lg">

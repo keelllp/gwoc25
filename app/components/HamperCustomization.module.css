@@ -23,7 +23,8 @@
 .sizeButtons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    flex-wrap: wrap; /* Ensures proper spacing on smaller screens */
+    gap: 20px; /* Controls spacing between buttons */
     margin: 10px 0;
 }
 
@@ -31,11 +32,20 @@
     background: #ff66a3;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 18px;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.2s ease-in-out, transform 0.1s ease-in-out;
+    margin: 5px 10px; /* Adds extra spacing between buttons */
 }
+
+.sizeButton:hover {
+    background: #e05590;
+    transform: scale(1.05);
+}
+
+
 
 .selectedSize {
     background: #d63384;

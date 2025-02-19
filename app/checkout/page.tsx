@@ -88,43 +88,7 @@ export default function CheckoutPage() {
                   />
                 </div>
 
-                {/* Delivery Type Selection */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Order Type
-                  </label>
-                  <div className="flex space-x-4">
-                    <label className="inline-flex items-center">
-                      <input
-                        type="radio"
-                        className="form-radio text-pink-600"
-                        name="deliveryType"
-                        value="takeout"
-                        checked={deliveryDetails.deliveryType === "takeout"}
-                        onChange={(e) => setDeliveryDetails({
-                          ...deliveryDetails,
-                          deliveryType: e.target.value as "takeout" | "delivery",
-                          address: e.target.value === "takeout" ? undefined : deliveryDetails.address
-                        })}
-                      />
-                      <span className="ml-2">Takeout</span>
-                    </label>
-                    <label className="inline-flex items-center">
-                      <input
-                        type="radio"
-                        className="form-radio text-pink-600"
-                        name="deliveryType"
-                        value="delivery"
-                        checked={deliveryDetails.deliveryType === "delivery"}
-                        onChange={(e) => setDeliveryDetails({
-                          ...deliveryDetails,
-                          deliveryType: e.target.value as "takeout" | "delivery"
-                        })}
-                      />
-                      <span className="ml-2">Delivery</span>
-                    </label>
-                  </div>
-                </div>
+                
 
                 {/* Conditional Address Input */}
                 {deliveryDetails.deliveryType === "delivery" && (
@@ -160,7 +124,7 @@ export default function CheckoutPage() {
                 <p className="text-gray-600 mb-2">Name: {deliveryDetails.name}</p>
                 <p className="text-gray-600 mb-2">Mobile: {deliveryDetails.mobile}</p>
                 <p className="text-gray-600 mb-2">
-                  Type: {deliveryDetails.deliveryType === "delivery" ? "Delivery" : "Takeout"}
+                  Type: {deliveryDetails.deliveryType === "delivery" ? "Delivery" : "Take-away"}
                 </p>
                 {deliveryDetails.address && (
                   <p className="text-gray-600 mb-2">Address: {deliveryDetails.address}</p>
