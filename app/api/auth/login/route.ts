@@ -12,6 +12,10 @@ export async function POST(req: NextRequest) {
     console.log("Received login request:", { email, password });
 
     // Log the JWT_SECRET value
+    if (!process.env.JWT_SECRET) {
+      console.error("JWT_SECRET is not defined");
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
     console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
     // Find user
@@ -28,14 +32,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
     }
 
-    // Check if JWT_SECRET is defined
-    if (!process.env.JWT_SECRET) {
-      console.error("JWT_SECRET is not defined");
-      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
-    }
-
-    console.log("JWT_SECRET is defined");
-
     // Generate JWT token
     const token = jwt.sign(
       { userId: user._id, email: user.email },
@@ -49,6 +45,7 @@ export async function POST(req: NextRequest) {
 
   } catch (error) {
     console.error("Login Error:", error);
+    console.error("Error details:", error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }

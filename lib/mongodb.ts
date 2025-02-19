@@ -20,6 +20,7 @@ export async function connectToDatabase() {
     .then((mongoose) => mongoose)
     .catch((error) => {
       console.error("MongoDB Connection Error:", error);
+      console.error("Error details:", error);
       throw new Error("Failed to connect to MongoDB");
     });
   }

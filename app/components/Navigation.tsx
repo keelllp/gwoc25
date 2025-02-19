@@ -1,13 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaRegCommentDots } from "react-icons/fa";
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
 import { CartButton } from "./Cart";
+import { useRouter } from "next/navigation";
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    console.log("Logging out...");
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    router.push("/auth");
+  };
 
   return (
     <>
@@ -29,8 +46,16 @@ export default function Navigation() {
 
           {/* Right Section */}
           <div className="flex items-center space-x-4">
-            {/* Login and Cart */}
-            <Link href="/login" className="flex items-center space-x-1"><FiUser /><span className="hidden md:inline">Log In</span></Link>
+            {/* Login/Logout and Cart */}
+            {isLoggedIn ? (
+              <button onClick={handleLogout} className="flex items-center space-x-1 text-red-500">
+                <FiUser /><span className="hidden md:inline">Logout</span>
+              </button>
+            ) : (
+              <Link href="/login" className="flex items-center space-x-1">
+                <FiUser /><span className="hidden md:inline">Log In</span>
+              </Link>
+            )}
             <CartButton />{/* Replaced the cart link with CartButton */}
 
             {/* Order Button */}

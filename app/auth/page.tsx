@@ -40,6 +40,7 @@ export default function AuthPage() {
       const data = await res.json();
       if (!res.ok) {
         setErrorMessage(data.error || "Something went wrong!"); // Set error message
+        console.error("Error response:", data);
         return;
       }
 
@@ -51,11 +52,14 @@ export default function AuthPage() {
           router.push("/shop"); // Redirect after login
         }, 2000);
       } else {
-        alert("Signup successful! You can now log in.");
-        setIsLogin(true);
+        setSuccessMessage("Signup successful! You can now log in.");
+        setTimeout(() => {
+          setIsLogin(true); // Switch to login mode after signup
+        }, 2000);
       }
     } catch (error) {
       setErrorMessage("Something went wrong!"); // Set error message for fetch error
+      console.error("Fetch error:", error);
     }
   };
 
