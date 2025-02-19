@@ -139,6 +139,14 @@ export default function CheckoutPage() {
                   <p className="text-sm text-gray-600">
                     Scan the QR code to complete your payment of ₹{cartTotal}
                   </p>
+                  <a
+                    href="https://wa.me/918849130189" // Replace with the actual WhatsApp number
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                  >
+                    Chat with us on WhatsApp
+                  </a>
                 </div>
               )}
               <button
